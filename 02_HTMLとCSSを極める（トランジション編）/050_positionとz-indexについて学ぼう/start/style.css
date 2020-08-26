@@ -1,6 +1,7 @@
 #container {
   padding: 1rem;
   background-color: gray;
+  height: 2000px;
 }
 
 div {
@@ -22,11 +23,15 @@ div {
 
 .div-3 {
   background: teal;
+  height: 800px;
+  position: relative;
 }
 
 .div-4 {
   width: 80px;
   height: 80px;
   background-color: violet;
+  position: sticky;
+  top: 30px;
 }
 /*# sourceMappingURL=style.css.map */
