@@ -34,6 +34,10 @@
 /* インライン要素に対して */
 /* ブロック要素を中央揃え */
 /**
- * 上下方向のレイアウト
- */
+ * 上下方向のレイアウト */
+.parent {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
 /*# sourceMappingURL=style.css.map */
