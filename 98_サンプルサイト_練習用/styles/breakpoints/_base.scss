@@ -8,6 +8,11 @@ body {
   font-family: 'Kameron', 'Noto Serif JP', sans-serif;
 }
 
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
 // mobile用のフォントサイズ設定
 .fons-sm {
   font-size: 14px;
