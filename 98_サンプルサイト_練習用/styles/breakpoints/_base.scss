@@ -7,3 +7,41 @@ Stylesheet: ベーススタイル
 body {
   font-family: 'Kameron', 'Noto Serif JP', sans-serif;
 }
+
+// mobile用のフォントサイズ設定
+.fons-sm {
+  font-size: 14px;
+}
+.font-md {
+  font-size: 17px;
+}
+.font-lr {
+  font-size: 17px;
+}
+.font-lg {
+  font-size: 25px;
+}
+
+// mobile用のmargin-bottomの設定
+.mb-sm {
+  margin-bottom: 16px !important;
+}
+.mb-lg {
+  margin-bottom: 80px !important;
+}
+
+// mobile用のpadding-bottomの設定
+.pb-sm {
+  margin-bottom: 16px !important;
+}
+.pb-lg {
+  margin-bottom: 80px !important;
+}
+
+// 横幅の設定
+.content-width {
+  width: 90%;
+  margin: 0 auto;
+  // 横幅の最大値を1070pxまでに設定
+  max-width: $contentMaxWidth;
+}
