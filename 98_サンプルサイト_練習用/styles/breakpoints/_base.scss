@@ -64,9 +64,18 @@ img {
   color: $cSubTitle;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
 // housesの設定
 .houses {
-  // @extend .content-width
+  @extend .content-width;
+
+  &__inner {
+    @extend .flex;
+  }
 
   &__title {
     @extend .font-lr;
@@ -75,5 +84,6 @@ img {
 
   &__btn {
     text-align: center;
+    flex-basis: 100%;
   }
 }
