@@ -567,7 +567,7 @@ img {
   font-size: 14px;
 }
 
-.font-md {
+.font-md, .popular__title {
   font-size: 17px;
 }
 
@@ -579,7 +579,7 @@ img {
   font-size: 25px;
 }
 
-.mb-sm, .houses__title {
+.mb-sm, .travel__sub, .travel__img, .houses__title, .popular__title {
   margin-bottom: 16px !important;
 }
 
@@ -587,7 +587,7 @@ img {
   margin-bottom: 80px !important;
 }
 
-.pb-sm {
+.pb-sm, .travel .texts, .popular__container {
   margin-bottom: 16px !important;
 }
 
@@ -595,7 +595,7 @@ img {
   margin-bottom: 80px !important;
 }
 
-.content-width, .houses {
+.content-width, .travel, .houses, .popular__header, .popular__container {
   width: 90%;
   margin: 0 auto;
   max-width: 1070px;
@@ -610,14 +610,101 @@ img {
   color: #535353;
 }
 
-.flex, .houses__inner {
+.flex, .travel__inner, .houses__inner, .popular__container {
   display: flex;
   flex-direction: column;
+}
+
+.purple {
+  color: #904669;
+}
+
+.travel__inner {
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #eaebe6;
+  position: relative;
+  z-index: 0;
+}
+
+.travel__title {
+  position: relative;
+}
+
+.travel__title::before {
+  display: none;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -120px;
+  width: 100px;
+  height: 1px;
+  background-color: black;
+  transform: translateY(-50%) scaleX(0);
+  transition: transform 0.3s ease 1.6s;
+  transform-origin: right;
+}
+
+.travel__img {
+  height: 300px;
+  transition: box-shadow 1ms linear 0.8s;
+}
+
+.travel__img > img {
+  position: relative;
+  z-index: -1;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.travel__img.inview {
+  box-shadow: inset 0 0 30px black;
+}
+
+.travel .texts.inview .travel__title::before {
+  transform: translateY(-50%);
 }
 
 .houses__btn {
   text-align: center;
   flex-basis: 100%;
+}
+
+.popular__inner {
+  position: relative;
+}
+
+.popular__inner::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 90%;
+  width: 100%;
+  background-color: #eaebe6;
+}
+
+.popular__container {
+  position: relative;
+  z-index: 2;
+}
+
+.popular__btn {
+  text-align: center;
+  flex-basis: 100%;
+}
+
+.popular__img {
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.popular__img > img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 @media (min-width: 480px) {
@@ -634,16 +721,29 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 Stylesheet: 600px以上のタブレットやモニタで適用
 
 ******************************************************************/
-  .flex, .houses__inner {
-    flex-direction: row;
-  }
-  .houses__inner {
+  .flex, .travel__inner, .houses__inner, .popular__container {
     flex-direction: row;
     flex-wrap: wrap;
+  }
+  .travel__inner {
+    padding: 50px;
+  }
+  .travel__texts, .travel__img {
+    flex-basis: 47%;
+  }
+  .travel__texts {
+    display: flex;
+    align-items: flex-end;
   }
   .houses__item {
     flex-basis: 50%;
     margin-bottom: 60px;
+  }
+  .popular__container {
+    justify-content: space-between;
+  }
+  .popular__item {
+    flex-basis: 47%;
   }
 }
 
@@ -656,7 +756,7 @@ Stylesheet: 960px以上のモニタで適用
   .fons-sm {
     font-size: 16px;
   }
-  .font-md {
+  .font-md, .popular__title {
     font-size: 19px;
   }
   .font-lr, .houses__title {
@@ -665,17 +765,32 @@ Stylesheet: 960px以上のモニタで適用
   .font-lg, .main-title {
     font-size: 36px;
   }
-  .mb-sm, .houses__title {
+  .mb-sm, .travel__sub, .travel__img, .houses__title, .popular__title {
     margin-bottom: 23px !important;
   }
   .mb-lg {
     margin-bottom: 36px !important;
   }
-  .pb-sm {
+  .pb-sm, .travel .texts, .popular__container {
     margin-bottom: 150px !important;
   }
   .pb-lg {
     margin-bottom: 150px !important;
+  }
+  .travel__img {
+    height: 400px;
+  }
+  .travel__description {
+    margin-bottom: 40px;
+  }
+  .travel__title::before {
+    display: block;
+  }
+  .popular__item {
+    flex-basis: 25%;
+  }
+  .popular__img {
+    height: 335px;
   }
 }
 
@@ -685,6 +800,18 @@ Stylesheet: 960px以上のモニタで適用
 Stylesheet: 1280px以上のモニタで適用
 
 ******************************************************************/
+  .travel__inner {
+    padding: 50px 150px;
+  }
+  .travel__img {
+    height: 400px;
+  }
+  .travel__description {
+    margin-bottom: 40px;
+  }
+  .popular__item {
+    flex-basis: 23%;
+  }
 }
 
 @media (min-resolution: 192dpi) {

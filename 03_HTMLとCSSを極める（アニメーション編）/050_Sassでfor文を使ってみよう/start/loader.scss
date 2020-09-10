@@ -12,7 +12,7 @@ $cBlack: black;
     animation: sk-bouncedelay 1.4s infinite;
 
     @for $i from 1 through 2 {
-      &:nth-child(#{$1}) {
+      &:nth-child(#{$i}) {
         animation-delay: -0.32s / $i;
       }
     }

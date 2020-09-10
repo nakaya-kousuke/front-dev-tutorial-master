@@ -64,9 +64,77 @@ img {
   color: $cSubTitle;
 }
 
+// flexの設定
 .flex {
   display: flex;
   flex-direction: column;
+}
+
+// purpleの色の設定
+.purple {
+  color: $cWineRed;
+}
+
+.travel {
+  @extend .content-width;
+
+  &__inner {
+    @extend .flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: $cBgGray;
+    position: relative;
+    z-index: 0;
+  }
+
+  &__title {
+    position: relative;
+
+    @include p-base(
+      $display: none,
+      $width: 100px,
+      $height: 1px,
+      $top: 50%,
+      $left: -120px
+    ) {
+      background-color: $cBlack;
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 0.3s ease 1.6s;
+      transform-origin: right;
+    }
+  }
+
+  &__sub {
+    @extend .mb-sm;
+  }
+
+  &__img {
+    height: 300px;
+    @extend .mb-sm;
+    transition: box-shadow 1ms linear 0.8s;
+
+    & > img {
+      position: relative;
+      z-index: -1;
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+    &.inview {
+      box-shadow: inset 0 0 30px $cBlack;
+    }
+  }
+
+  .texts {
+    @extend .pb-sm;
+
+    &.inview {
+      & .travel__title::before {
+        transform: translateY(-50%);
+      }
+    }
+  }
 }
 
 // housesの設定
@@ -85,5 +153,56 @@ img {
   &__btn {
     text-align: center;
     flex-basis: 100%;
+  }
+}
+
+// popularの設定
+.popular {
+  &__inner {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 90%;
+      width: 100%;
+      background-color: $cBgGray;
+    }
+  }
+
+  &__header {
+    @extend .content-width;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    @extend .flex;
+    @extend .content-width;
+    @extend .pb-sm;
+  }
+
+  &__title {
+    @extend .font-md;
+    @extend .mb-sm;
+  }
+
+  &__btn {
+    text-align: center;
+    flex-basis: 100%;
+  }
+
+  &__img {
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 5px;
+
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
 }
