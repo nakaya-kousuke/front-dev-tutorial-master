@@ -14,7 +14,7 @@ img {
 }
 
 // mobile用のフォントサイズ設定
-.fons-sm {
+.font-sm {
   font-size: 14px;
 }
 .font-md {
@@ -49,4 +49,31 @@ img {
   margin: 0 auto;
   // 横幅の最大値を1070pxまでに設定
   max-width: $contentMaxWidth;
+}
+
+// main-titleの設定
+.main-title {
+  @extend .font-lg;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+// sub-titleの設定
+.sub-title {
+  @extend .font-sm;
+  color: $cSubTitle;
+}
+
+// housesの設定
+.houses {
+  // @extend .content-width
+
+  &__title {
+    @extend .font-lr;
+    @extend .mb-sm;
+  }
+
+  &__btn {
+    text-align: center;
+  }
 }
