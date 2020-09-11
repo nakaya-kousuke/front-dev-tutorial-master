@@ -1,0 +1,61 @@
+/******************************************************************
+
+Stylesheet: 960px以上のモニタで適用
+
+******************************************************************/
+
+// PC用のフォントサイズ設定
+.fons-sm {
+  font-size: 16px;
+}
+.font-md {
+  font-size: 19px;
+}
+.font-lr {
+  font-size: 23px;
+}
+.font-lg {
+  font-size: 36px;
+}
+
+// PC用のmargin-bottomの設定
+.mb-sm {
+  margin-bottom: 23px !important;
+}
+.mb-lg {
+  margin-bottom: 36px !important;
+}
+
+// PC用のpadding-bottomの設定
+.pb-sm {
+  margin-bottom: 150px !important;
+}
+.pb-lg {
+  margin-bottom: 150px !important;
+}
+
+.travel {
+  &__img {
+    height: 400px;;
+  }
+
+  &__description {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    &::before {
+      display: block;
+    }
+  }
+}
+
+.popular {
+  &__item {
+    flex-basis: 25%;
+  }
+
+  &__img {
+    height: 335px;
+  }
+}
