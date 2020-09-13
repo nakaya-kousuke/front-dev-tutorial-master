@@ -56,6 +56,7 @@ img {
   @extend .font-lg;
   font-weight: 600;
   margin-bottom: 0;
+  display: block;
 }
 
 // sub-titleの設定
@@ -75,8 +76,79 @@ img {
   color: $cWineRed;
 }
 
+#container {
+  background-color: $cWhite;
+  position: relative;
+  z-index: 10;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+#main-content {
+  position: relative;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: -1;
+}
+
+// headerの設定
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+
+  &.triggered {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__li {
+    margin-left: 20px;
+
+    & > a {
+      color: $cBlack;
+      text-decoration: none !important;
+      text-transform: uppercase;
+    }
+  }
+
+  & .logo {
+    font-size: 38px;
+    justify-content: center;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @extend .content-width;
+  }
+}
+
+// travelの設定
 .travel {
   @extend .content-width;
+  @extend .mb-lg;
 
   &__inner {
     @extend .flex;
@@ -222,6 +294,7 @@ img {
   }
 }
 
+// footerの設定
 .footer {
   padding: 60px 0;
   @extend .content-width;
@@ -252,5 +325,75 @@ img {
   & .logo {
     font-size: 38px;
     justify-content: center;
+  }
+}
+
+.side {
+  display: none;
+  position: fixed;
+  top: 70%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in;
+
+  & .tween-animate-title {
+    color: $cBlack;
+    text-decoration: none !important;
+    margin: 0 40px;
+    vertical-align: center;
+    letter-spacing: 2px;
+  }
+
+  &.left {
+    left: -50px;
+
+    &.inview{
+      left: 50px;
+    }
+
+    & .side__inner {
+      transform-origin: top left;
+      transform: rotate(-90deg);
+    }
+  }
+
+  &.right {
+    right: -50px;
+
+    &.inview{
+      right: 50px;
+    }
+
+    & .side__inner {
+      transform-origin: top right;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.icon {
+  position: relative;
+
+  @include p-base(
+    $left: -20px,
+    $top: 50%,
+    $width: 1em,
+    $height: 1em
+  ) {
+    transform: translateY(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &.twitter {
+    &::before {
+      background-image: url(../images/twitter.svg);
+    }
+  }
+
+  &.fb {
+    &::before {
+      background-image: url(../images/facebook.svg);
+    }
   }
 }
